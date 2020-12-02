@@ -21,16 +21,23 @@ int main() {
 
     std::sort(values.begin(), values.end());
 
+
     auto begin_iter = values.begin();
+    auto pivot_iter = std::next(begin_iter);
     auto end_iter = values.rbegin();
-    auto current_val = *begin_iter + *end_iter;
+    auto current_val = *begin_iter + *pivot_iter + *end_iter;
     while (current_val != target_val && begin_iter != values.end() && end_iter != values.rend()) {
-        if (current_val < target_val) {
+        if (begin_iter == pivot_iter) {
+            pivot_iter++;
+            begin_iter = values.begin();
+            end_iter = values.rbegin();
+        } else if (current_val < target_val) {
             begin_iter++;
         } else {
             end_iter++;
         }
-        current_val = *begin_iter + *end_iter;
+
+        current_val = *begin_iter + *pivot_iter + *end_iter;
     }
 
     if (current_val != target_val) {
@@ -38,7 +45,8 @@ int main() {
         std::exit(1);
     }
 
-    std::cout << "Found a valid pair!" << std::endl;
-    std::cout << *begin_iter << " + " << *end_iter << " = " << current_val << std::endl;
-    std::cout << *begin_iter << " + " << *end_iter << " = " << *begin_iter * *end_iter << std::endl;
+    const auto result = *begin_iter * *pivot_iter * *end_iter;
+    std::cout << "Found a valid triplet!" << std::endl;
+    std::cout << *begin_iter << " + " << *pivot_iter << " + " << *end_iter << " = " << current_val << std::endl;
+    std::cout << *begin_iter << " + " << *pivot_iter << " + " << *end_iter << " = " << result << std::endl;
 }
