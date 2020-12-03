@@ -12,7 +12,7 @@ int main() {
 
     std::ifstream input_file_stream(input_file);
 
-    std::vector<std::vector<bool>> forest;
+    std::vector<const std::vector<bool>> forest;
 
     std::string line;
     while(input_file_stream >> line) {
@@ -37,7 +37,6 @@ int main() {
     size_t tree_count = 0;
     while (current_y < forest.size()) {
         if (forest[current_y][current_x]) {
-            std::cout << "hit a tree! " << current_x << " " << current_y << std::endl;
             tree_count += 1;
         }
         current_x = (current_x + slope_x) % row_size;
