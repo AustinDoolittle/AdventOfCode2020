@@ -8,7 +8,7 @@ int main() {
     const std::string input_file = "./day1/input.1";
     const int target_val = 2020;
 
-    std::cout << "===== Advent of Code Day 1.1 =====" << std::endl;
+    std::cout << "===== Advent of Code Day 1.2 =====" << std::endl;
     std::cout << "Reading file from " << input_file << std::endl;
 
     std::ifstream input_file_stream(input_file);
