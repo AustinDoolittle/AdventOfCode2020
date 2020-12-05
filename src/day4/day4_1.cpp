@@ -22,14 +22,6 @@ std::tuple<std::string, std::string> split_string_on_delimiter(const std::string
     return std::make_tuple(key, value);
 }
 
-void print_map(std::map<std::string, std::string>& map) {
-    for(const auto& elem : map)
-    {
-        std::cout << elem.first << ": " << elem.second << " ";
-    }
-    std::cout << std::endl;
-}
-
 int main() {
     const char delimiter = ':';
 
@@ -50,17 +42,10 @@ int main() {
     std::string line;
     std::map<std::string, std::string> current_passport;
     while (std::getline(input_file_stream, line)) {
-        std::cout << line << std::endl;
         if (line.empty()) {
-            print_map(current_passport);
             if (map_contains_all_keys(current_passport, required_values)) {
-                std::cout << "Good!";
                 valid_passport_count++;
-            } else {
-                std::cout << "Bad!";
             }
-
-            std::cout << std::endl << std::endl;
 
             current_passport.clear();
         } else {
@@ -72,6 +57,11 @@ int main() {
             }
         }
     }
+
+    if (map_contains_all_keys(current_passport, required_values)) {
+        valid_passport_count++;
+    }
+
 
     std::cout << "Found " << valid_passport_count << " valid passports" << std::endl;
 }

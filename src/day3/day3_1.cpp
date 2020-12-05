@@ -1,16 +1,16 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include "shared.h"
 
 int main() {
-    const std::string input_file = "./day3/input";
     const char tree_char = '#';
     const size_t slope_x = 3;
     const size_t slope_y = 1;
 
-    std::cout << "===== Advent of Code Day 3.1 =====" << std::endl;
+    print_header("3.1");
+    auto input_file_stream = open_input(3);
 
-    std::ifstream input_file_stream(input_file);
 
     std::vector<const std::vector<bool>> forest;
 

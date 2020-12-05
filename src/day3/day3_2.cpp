@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <shared.h>
 
 size_t calc_num_trees(const std::vector<const std::vector<bool>>& forest, const size_t slope_x, const size_t slope_y) {
     size_t row_size = forest[0].size();
@@ -20,14 +21,12 @@ size_t calc_num_trees(const std::vector<const std::vector<bool>>& forest, const 
 }
 
 int main() {
-    const std::string input_file = "./day3/input";
     const char tree_char = '#';
     const std::vector<size_t> x_slopes = {1, 3, 5, 7, 1};
     const std::vector<size_t> y_slopes = {1, 1, 1, 1, 2};
 
-    std::cout << "===== Advent of Code Day 3.2 =====" << std::endl;
-
-    std::ifstream input_file_stream(input_file);
+    print_header("3.2");
+    auto input_file_stream = open_input(3);
 
     std::vector<const std::vector<bool>> forest;
 
