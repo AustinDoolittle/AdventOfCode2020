@@ -1,15 +1,12 @@
 #include <iostream>
 #include <fstream>
+#include <shared.h>
 
 int main() {
-    const std::string input_file = "./day2/input.1";
 
-    std::cout << "===== Advent of Code Day 2.2 =====" << std::endl;
+    print_header("2.2");
+    auto input_file_stream = open_input(2);
 
-    std::cout << "Reading file from " << input_file << std::endl;
-
-
-    std::ifstream input_file_stream(input_file);
 
     //  sample input
     //  9-10 b: bbktbbbxhfbpb

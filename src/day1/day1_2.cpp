@@ -3,15 +3,13 @@
 #include <fstream>
 #include <vector>
 #include <iterator>
+#include <shared.h>
 
 int main() {
-    const std::string input_file = "./day1/input.1";
     const int target_val = 2020;
 
-    std::cout << "===== Advent of Code Day 1.2 =====" << std::endl;
-    std::cout << "Reading file from " << input_file << std::endl;
-
-    std::ifstream input_file_stream(input_file);
+    print_header("1.2");
+    auto input_file_stream = open_input(1);
 
     int a;
     std::vector<int> values;
