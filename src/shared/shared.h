@@ -1,4 +1,6 @@
 #include <fstream>
+#include <map>
+#include <iostream>
 
 std::ifstream open_input(int day) {
     const std::string input_file = "./day" + std::to_string(day) + "/input";
