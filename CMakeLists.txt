@@ -9,7 +9,7 @@ endif()
 
 set(CMAKE_CXX_FLAGS "-Wall -Wextra")
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
-set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+set(CMAKE_CXX_FLAGS_RELEASE "-Os")
 
 # sharing is caring
 include_directories(src/shared)
@@ -33,3 +33,7 @@ add_executable(day4_2 src/day4/day4_2.cpp)
 # day 5
 add_executable(day5_1 src/day5/day5_1.cpp)
 add_executable(day5_2 src/day5/day5_2.cpp)
+
+# day 6
+add_executable(day6_1 src/day6/day6_1.cpp)
+add_executable(day6_2 src/day6/day6_2.cpp)
