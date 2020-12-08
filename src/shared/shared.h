@@ -2,14 +2,24 @@
 #include <map>
 #include <iostream>
 
-std::ifstream open_input(int day) {
-    const std::string input_file = "./day" + std::to_string(day) + "/input";
+
+std::ifstream _open_input(const int day, const std::string filename) {
+    const std::string input_file = "./day" + std::to_string(day) + "/" + filename;
     std::ifstream fs = std::ifstream(input_file);
     if (!fs) {
         throw std::runtime_error("Could not open file");
     }
     return fs;
 }
+
+std::ifstream open_input(const int day) {
+    return _open_input(day, "input");
+}
+
+std::ifstream open_debug(const int day) {
+    return _open_input(day, "debug");
+}
+
 
 void print_header(const std::string& day) {
     std::cout << "======= Advent of Code Day " << day << " =======" << std::endl;
