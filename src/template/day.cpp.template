@@ -1,0 +1,8 @@
+#include "shared.h"
+
+int main() {
+     print_header("<DAY>.1");
+
+    auto input_file_stream = open_input(<DAY>);
+//    auto input_file_stream = open_debug(<DAY>);
+}

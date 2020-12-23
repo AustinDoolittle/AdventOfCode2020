@@ -7,8 +7,13 @@ std::ifstream _open_input(const int day, const std::string filename) {
     const std::string input_file = "./day" + std::to_string(day) + "/" + filename;
     std::ifstream fs = std::ifstream(input_file);
     if (!fs) {
-        throw std::runtime_error("Could not open file");
+        throw std::runtime_error("Could not open file " + filename);
     }
+
+    if (fs.peek() == std::ifstream::traits_type::eof()) {
+        throw std::runtime_error("File at " + filename + " is empty!");
+    }
+
     return fs;
 }
 
